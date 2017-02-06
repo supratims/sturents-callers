@@ -1,3 +1,4 @@
 <?php
 
-define('URL_OAUTH', '/stucallers/oauth2callback.php');
+define('SITE_NAME', 'stucallers');
+define('URL_OAUTH', '/'.SITE_NAME.'/oauth2callback.php');
