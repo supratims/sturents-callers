@@ -26,7 +26,7 @@ if (isset($_SESSION['access_token']) && $_SESSION['access_token']){
 	$objects = $report->getReport($analytics);
 
 	// Print the response.
-	$report->printResults($objects, ["ga:eventLabel", "ga:city", "ga:country"], 'events');
+	$report->printResults($objects, ["ga:eventLabel", "ga:city", "ga:country", "ga:latitude", "ga:longitude"], 'events');
 
 }
 else {

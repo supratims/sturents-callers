@@ -34,6 +34,14 @@ class EventsByCountry extends AbstractReports {
 		$dimension_country = new Google_Service_AnalyticsReporting_Dimension();
 		$dimension_country->setName("ga:country");
 
+		// Add another dimension by lat
+		$dimension_latitude = new Google_Service_AnalyticsReporting_Dimension();
+		$dimension_latitude->setName("ga:latitude");
+
+		// Add another dimension by lng
+		$dimension_longitude = new Google_Service_AnalyticsReporting_Dimension();
+		$dimension_longitude->setName("ga:longitude");
+
 		//apply a Dimension filter clause and filter only the eventAction with value 'call'
 		// Create Dimension Filter for matching dimension 'call'
 		$dimension_filter_call = new Google_Service_AnalyticsReporting_DimensionFilter();
@@ -55,7 +63,7 @@ class EventsByCountry extends AbstractReports {
 		$request->setViewId($VIEW_ID);
 		$request->setDateRanges($dateRange);
 		$request->setMetrics([$metric]);
-		$request->setDimensions([$dimension, $dimension_city, $dimension_country]);
+		$request->setDimensions([$dimension, $dimension_city, $dimension_country, $dimension_latitude, $dimension_longitude]);
 		$request->setDimensionFilterClauses([$dimension_filter_clause]);
 
 		$body = new Google_Service_AnalyticsReporting_GetReportsRequest();
