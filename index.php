@@ -28,6 +28,8 @@ if (isset($_SESSION['access_token']) && $_SESSION['access_token']){
 	// Print the response.
 	$report->printResults($objects, ["ga:eventLabel", "ga:city", "ga:country", "ga:latitude", "ga:longitude"], 'events');
 
+	$report->saveJson($objects);
+
 }
 else {
 	$redirect_uri = 'http://' . $_SERVER['HTTP_HOST'] . URL_OAUTH;

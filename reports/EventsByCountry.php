@@ -4,6 +4,10 @@ require_once __DIR__ . '/AbstractReports.php';
 
 class EventsByCountry extends AbstractReports {
 
+	public function name(){
+		return 'events_by_country';
+	}
+
 	public function getReport($analytics){
 
 		$VIEW_ID = "8339461";

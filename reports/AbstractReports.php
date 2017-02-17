@@ -1,6 +1,9 @@
 <?php
+require_once __DIR__ . '/../common.php';
 
-class AbstractReports {
+abstract class AbstractReports {
+
+	protected abstract function name();
 
 	public function convert($reports){
 		$objects = [];
@@ -63,5 +66,11 @@ class AbstractReports {
 		$table .= '</tbody></table>';
 
 		echo $table;
+	}
+
+	public function saveJson($objects){
+		$file_name = date("Y-m-d").'-'.$this->name().'.json';
+
+		file_put_contents(JSON_DIR.$file_name, json_encode($objects));
 	}
 }
